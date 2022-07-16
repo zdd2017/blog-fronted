@@ -36,7 +36,7 @@ export default defineComponent({
 
     const handleLogin = async (formEl: FormInstance | undefined) => {
       try {
-        await formEl.validate()
+        // await formEl.validate()
         const SHA256 = new Hashes.SHA256()
         const params = {
           username: loginForm.username,
