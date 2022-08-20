@@ -1,5 +1,5 @@
 <template>
-  <el-form :model="loginForm" ref="loginFormRef" :rules="rules">
+  <el-form class="form" :model="loginForm" ref="loginFormRef" :rules="rules" label-width="72px">
     <el-form-item label="用户名" prop="username">
       <el-input v-model="loginForm.username" />
     </el-form-item>
@@ -36,7 +36,7 @@ export default defineComponent({
 
     const handleLogin = async (formEl: FormInstance | undefined) => {
       try {
-        // await formEl.validate()
+        await formEl?.validate()
         const SHA256 = new Hashes.SHA256()
         const params = {
           username: loginForm.username,
@@ -57,3 +57,13 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped lang="scss">
+.form {
+  width: 300px;
+  margin: 200px auto;
+  border-radius: 4px;
+  padding: 24px;
+  box-shadow: 0px 2px 16px rgba(72, 74, 119, 0.2);
+}
+</style>
